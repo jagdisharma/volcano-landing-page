@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/sheet";
 
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { Menu } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
 import { LogoIcon } from "./Icons";
@@ -25,20 +25,24 @@ interface RouteProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "#features",
-    label: "Features",
+    href: "#home",
+    label: "Home",
   },
   {
-    href: "#testimonials",
-    label: "Testimonials",
+    href: "#about",
+    label: "About Us",
+  },
+  {
+    href: "#features",
+    label: "Blog",
   },
   {
     href: "#pricing",
-    label: "Pricing",
+    label: "Portfolio",
   },
   {
     href: "#faq",
-    label: "FAQ",
+    label: "Contact",
   },
 ];
 
@@ -55,7 +59,7 @@ export const Navbar = () => {
               className="ml-2 font-bold text-xl flex"
             >
               <LogoIcon />
-              ShadcnUI/React
+              Volcano Strategies
             </a>
           </NavigationMenuItem>
 
@@ -79,7 +83,7 @@ export const Navbar = () => {
               <SheetContent side={"left"}>
                 <SheetHeader>
                   <SheetTitle className="font-bold text-xl">
-                    Shadcn/React
+                    Volcano Strategies
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col justify-center items-center gap-2 mt-4">
@@ -94,16 +98,25 @@ export const Navbar = () => {
                       {label}
                     </a>
                   ))}
+                  <a 
+                    rel="noreferrer noopener"
+                    href="#"
+                    target="_blank"
+                    className={`w-[110px] border ${buttonVariants({
+                      variant: "default",
+                    })}`}
+                  >
+                    Sign In
+                  </a>
                   <a
                     rel="noreferrer noopener"
-                    href="https://github.com/leoMirandaa/shadcn-landing-page.git"
+                    href="#"
                     target="_blank"
                     className={`w-[110px] border ${buttonVariants({
                       variant: "secondary",
                     })}`}
                   >
-                    <GitHubLogoIcon className="mr-2 w-5 h-5" />
-                    Github
+                    Sign Up
                   </a>
                 </nav>
               </SheetContent>
@@ -127,14 +140,15 @@ export const Navbar = () => {
           </nav>
 
           <div className="hidden md:flex gap-2">
+            <Button className="w-full">Sign In</Button>
+
             <a
               rel="noreferrer noopener"
-              href="https://github.com/leoMirandaa/shadcn-landing-page.git"
+              href="#"
               target="_blank"
               className={`border ${buttonVariants({ variant: "secondary" })}`}
             >
-              <GitHubLogoIcon className="mr-2 w-5 h-5" />
-              Github
+              Sign Up
             </a>
 
             <ModeToggle />
